@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SellScale - AI-Powered Outbound Sales Agent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'sellscale-pink': '#FF1B8D',
+                        'sellscale-green': '#00FF00',
+                        'sellscale-purple': '#8A2BE2',
+                        'purple-custom': '#8B5CF6',
+                        'green-custom': '#10B981',
+                    },
+                    animation: {
+                        'gradient': 'gradient 6.4s linear infinite',
+                        'float': 'float 4.8s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3.2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'scroll-left': 'scroll-left 30s linear infinite',
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'scroll-left': {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            },
+            darkMode: 'class',
+        }
+    </script>
+</head>
+<body class="font-inter bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 rounded">
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-sellscale-pink/20 via-blue-500/10 to-sellscale-green/20 animate-gradient"></div>
+        
+        <!-- Floating Particles -->
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-sellscale-pink rounded-full animate-float opacity-60"></div>
+            <div class="absolute top-3/4 right-1/4 w-3 h-3 bg-sellscale-green rounded-full animate-float opacity-40" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-3/4 w-1 h-1 bg-blue-500 rounded-full animate-float opacity-80" style="animation-delay: 4s;"></div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="absolute top-0 w-full z-50 p-6">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="text-2xl font-bold text-sellscale-pink">SellScale</div>
+                <div class="flex items-center space-x-6">
+                    <a href="#demo" class="text-gray-600 dark:text-gray-300 hover:text-sellscale-pink transition-colors">Demo</a>
+                    <a href="#benefits" class="text-gray-600 dark:text-gray-300 hover:text-sellscale-pink transition-colors">Benefits</a>
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path class="dark:hidden" d="M10 2L13.09 8.26L20 9L14 14.74L15.18 21.02L10 17.77L4.82 21.02L6 14.74L0 9L6.91 8.26L10 2Z"/>
+                            <path class="hidden dark:block" d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center max-w-5xl mx-auto px-6">
+            <h1 class="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-sellscale-pink to-sellscale-green bg-clip-text text-transparent">
+                AI That Closes Deals
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Selix automates your entire outbound sales process with AI that never lands in spam, 
+                pulls enrichment from anywhere, and finds messaging that resonates.
+            </p>
+            <button class="bg-gradient-to-r from-sellscale-pink to-sellscale-green text-white px-8 py-4 rounded-xl text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 animate-pulse-slow">
+                Get a Demo
+            </button>
+        </div>
+    </section>
+
+    <!-- Brand Carousel -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800 rounded">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-center text-gray-500 dark:text-gray-400 mb-8 text-sm uppercase tracking-wide">
+                Trusted by industry leaders
+            </p>
+            <div id="brand-carousel" class="flex justify-center items-center space-x-12 overflow-hidden">
+                <!-- Brand logos will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-20 rounded">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">See Selix in Action</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Experience how our AI transforms your outbound sales process in real-time
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Chat Interface -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-semibold">Chat with Selix</h3>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                            <span class="text-sm text-gray-500">Online</span>
+                        </div>
+                    </div>
+                    
+                    <div id="chat-messages" class="h-80 overflow-y-auto mb-4 space-y-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-sellscale-pink rounded-full flex items-center justify-center text-white text-sm font-bold">S</div>
+                            <div class="bg-white dark:bg-gray-600 rounded-lg p-3 max-w-xs">
+                                <p class="text-sm">Hi! I'm Selix, your AI sales agent. What type of outbound campaign would you like to create?</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-2">
+                        <input 
+                            type="text" 
+                            id="chat-input" 
+                            placeholder="Type your message..." 
+                            class="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-sellscale-pink focus:border-transparent dark:bg-gray-700"
+                        >
+                        <button 
+                            id="send-message" 
+                            class="bg-sellscale-pink text-white px-6 py-2 rounded-lg hover:bg-sellscale-pink/80 transition-colors"
+                        >
+                            Send
+                        </button>
+                    </div>
+                    
+                    <div class="mt-4 text-xs text-gray-500 text-center">
+                        <span id="chat-count">5</span> free chats remaining
+                    </div>
+                </div>
+
+                <!-- AI Output -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+                    <h3 class="text-xl font-semibold mb-6">AI-Generated Output</h3>
+                    <div id="ai-output" class="h-96 overflow-y-auto p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                        <div class="text-gray-500 text-center py-20">
+                            Start a conversation to see AI-generated sales content
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Benefits -->
+    <section id="benefits" class="py-20 bg-gray-50 dark:bg-gray-800 rounded">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Why Sales Teams Choose Selix</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Three core benefits that transform your outbound sales performance
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- Benefit Toggle Buttons -->
+                <div class="flex justify-center mb-12">
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-2 shadow-lg">
+                        <button class="benefit-tab active px-6 py-3 rounded-lg font-medium transition-all" data-benefit="spam">
+                            Never Land in Spam
+                        </button>
+                        <button class="benefit-tab px-6 py-3 rounded-lg font-medium transition-all" data-benefit="enrichment">
+                            Pull Enrichment from Anywhere
+                        </button>
+                        <button class="benefit-tab px-6 py-3 rounded-lg font-medium transition-all" data-benefit="messaging">
+                            Find Messaging that Resonates
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Benefit Content -->
+                <div id="benefit-content" class="bg-white dark:bg-gray-700 rounded-2xl shadow-xl p-8 min-h-96">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pipeline CTA -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto text-center px-6">
+            <div class="bg-gradient-to-r from-sellscale-pink to-sellscale-green rounded-2xl p-12 text-white">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Pipeline is our North Star</h2>
+                <p class="text-xl mb-8 opacity-90">
+                    Ready to transform your sales process? Let's build your pipeline together.
+                </p>
+                <a href="/intake" class="inline-block bg-white text-sellscale-pink px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300">
+                    Start Your Journey
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <img src="logo.png" alt="SellScale" class="h-8 w-auto mb-4">
+                    <p class="text-gray-400 max-w-md">
+                        AI-powered outbound sales that actually works. Transform your sales process with Selix.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">API</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <a href="mailto:contact@sellscale.com" class="text-gray-400 hover:text-white transition-colors">
+                            contact@sellscale.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 SellScale. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
